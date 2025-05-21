@@ -1,0 +1,353 @@
+
+.ikr_rv_detail {
+    /* pointer-events: none; */
+    width: max-content;
+    max-width: 240px;
+    /* min-width: 150px; */
+    z-index: 5;
+    max-height: max-content;
+    height: auto;
+    flex-shrink: 0;
+    margin: 20px auto;
+    overflow-wrap: break-word;
+    display: none;
+    position: absolute;
+    background: #fff;
+    padding: 0;
+
+    border-radius: 3px;
+    box-shadow: 0 16px 24px 2px #00000024, 0 6px 30px 5px #0000001f,
+        0 8px 10px #0000004d, 0 0 0 1px #0003;
+
+    z-index: 10000;
+}
+
+.ikr_rv_detail::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    transform: rotate(var(--rotate_value));
+}
+
+.ikr_detail_img img {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+}
+
+.map_details {
+    text-align: center;
+    padding: 2px 8px 6px;
+    color: #262323;
+}
+
+#detail_name {
+    font-size: 16px;
+    margin: 0 0 2px;
+    color: #669933;
+}
+
+.ikr_detail_img {
+    width: 100%;
+    background: #fff;
+    overflow: hidden;
+    max-height: 100%;
+    margin: 0px auto 0;
+    max-height: 200px;
+}
+
+.map_title {
+    color: #262323;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0 auto;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.detail_des {
+    color: #262323;
+    text-align: left;
+    font-family: Roboto;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 2px !important;
+    ;
+    margin: 0;
+    padding-bottom: 0px;
+}
+
+.detail_des ul {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding-left: 22px;
+}
+
+.detail_des ul li {
+    position: relative;
+    margin-bottom: 3px;
+}
+
+.detail_des ul li::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    /* color: green; */
+    left: -17px;
+    background-color: green;
+    top: 6px;
+    text-align: center;
+}
+
+#ikr_price {
+    margin: 0 auto;
+    width: max-content;
+}
+
+#plotId {
+    text-transform: uppercase;
+
+}
+
+/* #ikr_btnTxt {
+color: white;
+text-decoration: none;
+text-transform: capitalize;
+background-color: green;
+border: none;
+padding: 5px 20px;
+border-radius: 50px;
+display: block;
+} */
+
+#ikr_btnTxt {
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+    background: #1cbb64;
+    border: 1px solid #1cbb64;
+    box-shadow: 0 1px 1px #0000001f;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 1rem;
+    margin-top: 10px;
+    min-width: 110px;
+    padding: 4px 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+#ikr_btnTxt:hover {
+    background: #19a558;
+    color: #fff;
+    text-decoration: none;
+}
+
+.ikr_map_tooltip_button {
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    white-space: nowrap;
+    background: green;
+    border: #1cbb64 solid 1px;
+    box-shadow: 0 1px 1px #0000001f;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 3px;
+    font-size: 1rem;
+
+    min-width: 110px;
+    padding: 4px 16px;
+    width: max-content;
+    text-align: center;
+    margin: 10px auto 0;
+}
+
+.ikr_map_tooltip {
+    position: absolute;
+    display: none;
+    width: max-content;
+    font-size: 18px;
+    text-align: center;
+    background: white;
+    padding: 10px 15px;
+    z-index: 5;
+    height: auto;
+    line-height: 9px;
+    margin: 0 auto;
+    color: #21669e;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #eee;
+    transform: translate(-40%, 40%);
+    text-transform: uppercase;
+    font-weight: 400;
+    z-index: 55;
+}
+
+
+.ikr_mapDetail {
+
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+
+}
+
+@media screen and (max-width: 667px) {
+    .ikr_rv_detail {
+        max-width: 170px;
+        min-width: 121px;
+    }
+
+    .map_details {
+        padding: 0px 0px 12px;
+    }
+
+    .detail_des {
+        padding-bottom: 0px;
+    }
+
+    .detail_des ul {
+        margin: 0;
+        padding-left: 20px;
+    }
+
+    .detail_des ul li::before {
+        width: 7px;
+        height: 7px;
+        left: -13px;
+        top: 7px;
+    }
+
+    .detail_des ul li {
+        font-size: 11px;
+        line-height: 16px;
+    }
+
+    /* .detail_des ul li:nth-child(2) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(3) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(4) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(5) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(6) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(7) {
+        display: none;
+    }
+
+    .detail_des ul li:nth-child(8) {
+        display: none;
+    } */
+
+    .map_title {
+        font-size: 14px;
+    }
+
+    .ikr_map_tooltip_button {
+        font-size: 13px;
+    }
+
+    #ikr_price {
+        font-size: 14px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    .ikr_detail_img {
+        margin: 0px auto 0;
+        max-height: 100px;
+    }
+
+    #ikr_btnTxt {
+        padding: 2px 4px;
+        display: inline-block;
+        margin: 0 auto;
+    }
+
+    .ikr_map_tooltip {
+        font-size: 12px;
+        padding: 8px 7px;
+    }
+}
+
+@media screen and (max-width:467px) {
+    .ikr_rv_detail {
+        max-width: 130px;
+        min-width: 121px;
+    }
+
+    .ikr_mapDetail {
+        line-height: 16px;
+        font-size: 11px;
+        padding: 0 3px;
+        height: 47px;
+        overflow: hidden;
+
+    }
+
+    .map_title {
+        font-size: 11px;
+    }
+
+    #ikr_btnTxt {
+        padding: 2px 13px;
+        display: inline-block;
+        margin: 0 auto;
+        font-size: 16px;
+        min-width: max-content;
+    }
+}
+
+
+.newh {
+    width: 100%;
+    height: 5000px;
+    background-color: red;
+}
+
+.ikr_map5 {
+    position: relative;
+}
+
+.ikr_mapDetail {
+    line-height: 21px;
+    font-size: 11px;
+    padding: 0 3px;
+}
+.container {
+	width: 70%;
+	margin: 0 auto;
+	position: relative;
+}

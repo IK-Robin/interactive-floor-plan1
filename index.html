@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive floor plan</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="ikr_rv_detail" id="ikr_rv_detail">
+            <div style="position: relative">
+                <div id="detail_img" class="ikr_detail_img">
+                    <img src="" alt="" id="map_img" />
+                </div>
+                <div class="map_details">
+                    <p id="plotId" class="map_title"></p>
+
+                    <div id="detail_des" class="detail_des"></div>
+
+                    <a id="ikr_btnTxt" class="ikr_map_tooltip_button" target="_blank" href="">
+                        Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="ikr_map_tooltip" id="ikr_map_tooltip"></div>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg id="ikr_svg" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1536">
+            <defs>
+                <style>
+                    .cls-1 {
+                        fill: red;
+                        opacity: 0;
+                        stroke: #000;
+                        stroke-miterlimit: 10;
+                    }
+                </style>
+            </defs>
+            <image width="1024" height="1536" xlink:href="./9451FC40-0FFE-4194-AD0F-5C174503FCD6.png" />
+            <polygon id="floor1" class="cls-1"
+                points="201.6 1049.92 197.88 1273.6 232.8 1277.92 240.72 1270 593.88 1351 896.4 1162.24 898.08 1010.08 591.36 1084.96 201.6 1049.92" />
+        </svg>
+    </div>
+
+
+    <script>
+
+        const ikr_svg = document.getElementById('ikr_svg');
+
+        function getAllChildNodeIds(svgElement) {
+            const childNodeIds = [];
+
+            // Iterate through all child elements of the SVG
+            for (const childElement of svgElement.children) {
+                // Check if the child element has an ID attribute
+                if (childElement.id) {
+                    childNodeIds.push(childElement.id);
+                }
+
+                // Recursively process child elements
+                childNodeIds.push(...getAllChildNodeIds(childElement));
+            }
+
+            return childNodeIds;
+        }
+
+        console.log(getAllChildNodeIds(ikr_svg));
+
+        const floor_id = [
+            "floor1"
+        ]
+
+        const floorData = [
+            {
+                id: "floor1",
+                name: "Ground Floor",
+                description: "Reception, Parking, and Lounge Area",
+                rooms: 10,
+                amenities: ["Lobby", "Restrooms", "Security Desk"],
+                link: './floor_plan1.html',
+            }, 
+          
+           
+        ];
+
+
+
+        // loat id 
+
+
+        const ikr_rv_detail = document.getElementById("ikr_rv_detail");
+
+        const plotId = document.getElementById("plotId");
+        const map_img = document.getElementById("map_img");
+        const detail_des = document.getElementById("detail_des");
+
+        const ikr_map_tooltip = document.getElementById("ikr_map_tooltip");
+
+        // select all path using their id
+        floor_id.forEach((i) => {
+            const getPath = document.getElementById(`${i}`);
+
+            // add click event
+            // Common function to display lot details
+            function showfloorData(ev, mapContent, index) {
+
+
+                // change the fill color of the path on mouse move 
+
+                const ct = ev.target;
+
+                ct.style.opacity = '0.5';
+                //   if (index < 9) {
+                //     plotId.innerHTML = ` Lot 0${index + 1}`;
+                //   } else {
+                //   }
+                plotId.innerHTML = mapContent.name;
+
+                ikr_rv_detail.style.display = "block";
+                ikr_rv_detail.style.top = ev.offsetY + "px";
+
+                detail_des.innerHTML = `
+    <ul>
+      <li>  <strong> </strong>  ${mapContent.description} </li>
+      <li>  <strong> Rooms</strong>  ${mapContent.rooms} </li>
+      <li>    ${mapContent.amenities}</li>
+    </ul>
+  `;
+
+                let screenWidth = window.innerWidth;
+                if (screenWidth < 350 && ev.offsetX < 150) {
+                    ikr_rv_detail.style.left = ev.offsetX + ikr_rv_detail.offsetWidth / 6 + "px";
+                } else if (screenWidth < 350 && ev.offsetX < 200) {
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                } else if (screenWidth < 500 && ev.offsetX > 120) {
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                } else if (screenWidth > 500) {
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                } else {
+                    ikr_rv_detail.style.left = ev.offsetX + "px";
+                }
+
+                ikr_btnTxt.style.display = mapContent.site_link ? "block" : "none";
+                if (mapContent.site_link) {
+                    ikr_btnTxt.href = mapContent.site_link;
+                }
+            }
+
+            // Click Event
+            getPath.addEventListener("click", (ev) => {
+                let ct = ev.target;
+                floorData.forEach((mapContent, index) => {
+                    if (mapContent.id === ct.parentNode.id || mapContent.id === ct.id) {
+                        showfloorData(ev, mapContent, index);
+                        // the link open a new tab
+
+                        window.open(mapContent.link, '_blank');
+
+
+
+                    }
+                });
+            });
+
+            // Mousemove Event for Hover Effect
+            getPath.addEventListener("mousemove", (ev) => {
+                let currentTarget = ev.target;
+
+
+
+
+                currentTarget.style.cursor = "pointer";
+                currentTarget.classList.add("hovColor");
+
+                floorData.forEach((mapContent, index) => {
+                    if (mapContent.id === currentTarget.parentNode.id || mapContent.id === currentTarget.id) {
+
+                        console.log(mapContent.id)
+
+                        // Show lot details on hover as well
+                        showfloorData(ev, mapContent, index);
+                    }
+                });
+            });
+
+            // Mouseout Event
+            getPath.addEventListener("mouseout", (ev) => {
+                ev.target.classList.remove("hovColor");
+
+                ev.target.style.opacity = '0';
+                ikr_rv_detail.style.display = "none"; // Hide details on mouse out
+            });
+
+        });
+        window.addEventListener("click", (dh) => {
+            const clickedId = dh.target.id || dh.target.parentNode.id;
+
+            let foundMatch = false;
+            for (let i = 0; i < mapId.length; i++) {
+                if (mapId[i] === clickedId) {
+                    foundMatch = true;
+                    break;
+                }
+            }
+
+            if (foundMatch) {
+                // Show the ikr_rv_detail when the ID matches
+                ikr_rv_detail.style.display = "block";
+            } else {
+                // Hide the ikr_rv_detail when the ID does not match
+                ikr_rv_detail.style.display = "none";
+            }
+        });
+
+        window.addEventListener("load", (ev) => { });
+
+    </script>
+</body>
+
+</html>
