@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1059.4 1589.11">
+    <defs>
+        <style>.cls-1,.cls-2{fill:#f71111;opacity:0.01;}.cls-1{stroke:#f71111;stroke-linejoin:round;}</style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <image width="1024" height="1536" transform="scale(1.03)" xlink:href="./Solareign_East.png"/>
+    </g>
+    <g id="floor">
+        <polygon id="ground_floor" class="cls-1" points="928.51 1039.32 928.68 1177.02 613.44 1382.81 249.66 1313.53 238.04 1318.12 206.3 1310.98 208.24 1077.23 613.71 1110.93 928.51 1039.32"/>
+        <polygon id="second_floor" class="cls-1" points="928.13 880.1 928.51 1039.32 613.71 1110.93 208.24 1077.23 208.17 868.7 610.81 854.98 928.13 880.1"/>
+        <polygon id="rooft_terrace" class="cls-2" points="927.53 583.57 612.08 344.68 219.66 447.18 219.66 387.74 231.15 385.19 230.13 280 209.7 267.74 210.21 255.23 606.47 108.42 825.53 336.93 825.74 333.32 840.47 327.23 928.17 422.21 927.53 583.57"/>
+        <polygon id="third_floor" class="cls-1" points="927.88 730.08 928.13 880.1 610.81 854.98 208.17 868.7 209.19 662.1 611.06 610.38 927.88 730.08"/>
+        <polygon id="fourth_floor" class="cls-1" points="927.53 583.57 927.88 730.08 611.06 610.38 209.19 662.1 209.19 449.91 219.66 447.18 612.08 344.68 927.53 583.57"/>
+    </g>
+</svg>

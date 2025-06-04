@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1536" style="enable-background:new 0 0 1024 1536;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:1.000000e-02;fill:#F40808;stroke:#F40808;stroke-miterlimit:10;enable-background:new    ;}
+	.st1{opacity:1.000000e-02;fill:#F40808;enable-background:new    ;}
+</style>
+<g id="Layer_1_00000067940864833991954540000006760121604188003505_">
+	
+		<image style="overflow:visible;enable-background:new    ;" width="2134" height="3200" xlink:href="Solareign_East_ThirdFloor-01.png"  transform="matrix(0.48 0 0 0.48 -0.1108 7.384704e-02)">
+	</image>
+</g>
+<rect id="office_303_400sqft" x="43.9" y="896.6" class="st0" width="564.5" height="385.3"/>
+<polygon id="office_303" class="st0" points="624.3,1281.9 976,1281 972.8,896.6 622,896.6 "/>
+<polygon id="office302" class="st0" points="622,885.8 976,886.4 972.9,535.5 622,535.5 "/>
+<polygon id="elevator" class="st0" points="413.4,886.4 610,886.4 609.5,535.5 413.4,535.5 "/>
+<polygon id="office_300" class="st0" points="46.5,885.8 400.9,885.8 401.4,535.5 48.7,535.5 "/>
+<polygon id="kitchenette" class="st0" points="694.2,58.9 971.2,58.9 973,365 694.2,366.3 "/>
+<polygon id="womens" class="st1" points="567.2,290.7 683.9,290.7 681.4,58.9 567.2,58.9 "/>
+<polygon id="elevator-2" class="st0" points="417.4,58.9 554.5,58.9 554.5,290.7 419.1,290.7 "/>
+<polygon id="entry" class="st0" points="438.8,322.7 440.9,396.6 537.5,399 537.5,322.7 "/>
+<polygon id="conference_room" class="st0" points="971.2,377.5 973,523.2 50,522 52.4,58.7 404.9,58.9 405.1,303 408.9,397.3 
+	566.5,399 566.8,388.7 573.3,303 684.9,304 683.2,375.5 "/>
+<rect id="hispreed_wifi" x="294.1" y="1436.6" class="st0" width="351.3" height="67.4"/>
+</svg>

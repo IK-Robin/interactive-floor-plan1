@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive floor plan</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="ikr_container">
+        <div class="unit-box" id="reserve_status">
+            <div class="unit-title">Office Unit<br>202</div>
+            <div class="unit-size">1,920 sq ft</div>
+            <div class="unit-status">Available</div>
+        </div>
+
+        <div id="lease_popup" class="card">
+            <h3>Office U202</h3>
+            <p>950 sq ft.</p>
+            <a href="#" class="lease-btn">Lease</a>
+            <p class="leased">Leased</p>
+            <p class="leased">Leased</p>
+        </div>
+
+        <div class="popup dark-popup ">
+            <h3>Office Unit 400</h3>
+            <p>500 sq ft</p>
+            <a href="#" class="btn dark">Available</a>
+        </div>
+
+
+        <div class="popup light-popup" id="floor_datail_popup">
+            <h3>Cell Phone Shop</h3>
+            <p><strong>Square Footage</strong> &nbsp; 500</p>
+            <p><strong>Rental Pricing</strong> &nbsp; 6.500/mo</p>
+            <p><strong>Lease Status</strong> &nbsp; <span class="available">Available</span></p>
+            <a href="#" class="btn light">Reserve This Unit</a>
+            <div class="pointer"></div>
+        </div>
+        <div class="ikr_rv_detail" id="ikr_rv_detail">
+            <div style="position: relative">
+                <div id="detail_img" class="ikr_detail_img">
+                    <img src="" alt="" id="map_img" />
+                </div>
+                <div class="map_details">
+                    <p id="plotId" class="map_title"></p>
+
+                    <div id="detail_des" class="detail_des"></div>
+
+                    <a id="ikr_btnTxt" class="ikr_map_tooltip_button" target="_blank" href="">
+                        Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="ikr_map_tooltip" id="ikr_map_tooltip"></div>
+
+
+        <svg id="ikr_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 1024 1024">
+            <defs>
+                <style>
+                    .cls-1,
+                    .cls-2 {
+                        fill: #ff0d0d;
+                        stroke-miterlimit: 10;
+                        opacity: 0.01;
+                    }
+
+                    .cls-1 {
+                        
+                    }
+
+                    .cls-2 {
+                        
+                    }    .hoverColor {
+                        fill: #F4B400 !important;
+                        opacity: 0.5 !important;
+                    }
+                </style>
+            </defs>
+            <g id="Layer_1" data-name="Layer 1">
+                <image width="1024" height="1024" xlink:href="./svg/Solareign_East_SecondFloor-01.png" />
+            </g>
+            <g id="solareign_east_second_floor">
+                <polygon id="office_201" class="cls-1"
+                    points="20.77 841.53 310.47 841.53 317.62 524.6 40.43 525.28 20.77 841.53" />
+                <polygon id="_2001" data-name="2001" class="cls-1"
+                    points="321.53 841.53 329.11 526.34 507.75 526.3 507.06 841.53 321.53 841.53" />
+                <polygon id="_2020" data-name="2020" class="cls-1"
+                    points="518.17 525.19 696 526.3 703.91 841.53 518.17 840.68 518.17 525.19" />
+                <polygon id="office_203" class="cls-1"
+                    points="707.23 525.19 985.53 525.45 1004.25 840.51 714.55 841.53 707.23 525.19" />
+                <polygon id="conference" class="cls-1"
+                    points="390.4 408.17 387.57 514.72 42.38 512 71.15 45.45 374.81 44.6 370.21 309.96 378.47 408.34 390.4 408.17" />
+                <polygon id="lobby" class="cls-1"
+                    points="390.4 408.17 390.4 341.11 410.81 341.94 410.81 344.68 417.83 344.75 417.83 342 483.06 342.13 483.06 344.25 488.77 344.34 488.77 341.11 526.47 342.13 526.47 396.77 567.91 397.02 567.91 400 575.15 399.92 575.15 397.45 641.36 397.53 641.36 399.75 647.91 399.75 647.91 396.85 720.34 396.94 735.66 307.06 738 307.06 737.36 296.81 734.94 296.81 741.19 266.68 969.45 268.08 985.79 514.72 387.57 514.72 390.4 408.17" />
+                <path id="mens" class="cls-1"
+                    d="M386,45.28H529.19L530,201.83,382.72,203Zm-3.32,165.1,7.68,130.73,20.41.83v2.74l7,.06V342l65.23.13v2.13l5.71.08v-3.23l37.7,1L530,210.38Z" />
+                <polygon id="elevator" class="cls-1"
+                    points="538.89 45.28 678.47 45.28 683.91 295.49 538.89 296.85 538.89 45.28" />
+                <polygon id="r1" class="cls-1"
+                    points="688.34 45.28 695.49 296.85 734.94 296.81 741.19 266.68 740.43 260.3 970.21 258.38 956.6 45.28 688.34 45.28" />
+                <rect id="high_spreed_wifi" class="cls-2" x="780.43" y="872.49" width="107.62" height="131.36" />
+                <rect id="centrail_air" class="cls-2" x="896.09" y="872.49" width="107.62" height="131.36" />
+            </g>
+        </svg>
+
+    </div>
+
+    <!-- import the data from the data js -->
+    <script src="./data.js"></script>
+
+    <script>
+
+        const ikr_svg = document.getElementById('ikr_svg');
+        const lease_popup = document.getElementById('lease_popup');
+        const reserve_status = document.getElementById('reserve_status');
+        const floor_datail_popup = document.getElementById('floor_datail_popup');
+
+
+
+        function getAllChildNodeIds(svgElement) {
+            const childNodeIds = [];
+
+            // Iterate through all child elements of the SVG
+            for (const childElement of svgElement.children) {
+                // Check if the child element has an ID attribute
+                if (childElement.id) {
+                    childNodeIds.push(childElement.id);
+                }
+
+                // Recursively process child elements
+                childNodeIds.push(...getAllChildNodeIds(childElement));
+            }
+
+            return childNodeIds;
+        }
+
+        console.log(getAllChildNodeIds(ikr_svg));
+
+        const floor_id = [
+
+            "office_201",
+            "_2001",
+            "_2020",
+            "office_203",
+            "conference",
+            "lobby",
+            "mens",
+            "elevator",
+            "r1",
+            "high_spreed_wifi",
+            "centrail_air"
+        ]
+
+
+        function getAllChildNodeIds(svgElement) {
+            const childNodeIds = [];
+            for (const childElement of svgElement.children) {
+                if (childElement.id) {
+                    childNodeIds.push(childElement.id);
+                }
+                childNodeIds.push(...getAllChildNodeIds(childElement));
+            }
+            return childNodeIds;
+        }
+
+        console.log(getAllChildNodeIds(ikr_svg));
+
+        floor_id.forEach((i) => {
+            const getPath = document.getElementById(`${i}`);
+            function showfloorData(ev, mapContent, index) {
+                const ct = ev.target;
+
+                function set_tooltip_id() {
+                    // Clear any existing classes from the target
+                    ct.classList.remove("available_units", "hoverColor");
+
+                    if (mapContent.status.toLowerCase() === "available" || mapContent.status.toLowerCase() == "available (hourly)") {
+                        reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("available_units");
+                        return reserve_status;
+                    } else if (mapContent.status.toLowerCase() === "reserved") {
+                        reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("leased_units");
+                        return reserve_status;
+                    } else if (mapContent.status.toLowerCase() === "leased") {
+                         reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("leased_units");
+                        return reserve_status;
+                    }
+
+                    else if (mapContent.status.toLowerCase() === "under contract") {
+                         reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("under_contract");
+                        return reserve_status;
+                    }
+                    else if (mapContent.status.toLowerCase() === "management use") {
+                         reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("management_use");
+                        return reserve_status;
+                    }
+                    else if (mapContent.status.toLowerCase() === "bookable spaces") {
+                        reserve_status.innerHTML = `
+                        <div class="unit-title">${mapContent.unit}</div>
+                        <div class="unit-size">${mapContent.size} </div>
+                        <div class="unit-status">${mapContent.btn_text}</div>
+                    `;
+                        ct.classList.add("bookable_spaces");
+                        return reserve_status;
+                    }
+
+
+
+                    else {
+                        reserve_status.innerHTML = `
+                                <div class="unit-title">${mapContent.unit}</div>
+                                <div class="unit-size">${mapContent.size} </div>
+                            `;
+                        ct.classList.add("hoverColor");
+                        return reserve_status;
+                    }
+                }
+
+                const tooltip = set_tooltip_id();
+                tooltip.style.display = "block";
+                tooltip.style.top = ev.offsetY + "px";
+
+                let screenWidth = window.innerWidth;
+                let left;
+                console.log('screenWidth:', screenWidth);
+                console.log('ev.offsetX:', ev.offsetX);
+                if (screenWidth < 350 && ev.offsetX < 150) {
+                    left = ev.offsetX + tooltip.offsetWidth / 6 - 30;
+console.log(350)
+
+                } else if (screenWidth < 350 && ev.offsetX < 200) {
+                    left = ev.offsetX - tooltip.offsetWidth - 30;
+                    console.log(200)
+                }
+                
+                else if (screenWidth < 500 && ev.offsetX > 170) {
+                    left = ev.offsetX - tooltip.offsetWidth - 30;
+                    console.log(-500)
+                }
+                else if (screenWidth < 500 && ev.offsetX < 170) {
+                    left = ev.offsetX + 30 ;
+                    console.log('screen 170' )
+                }
+                
+                else if (screenWidth > 500  && ev.offsetX <200) {
+                    console.log('last 500')
+                    left = ev.offsetX + 30 ;
+                } else if (screenWidth > 550){
+                     left = ev.offsetX - tooltip.offsetWidth - 30;
+                }
+                
+                else {
+                    left = ev.offsetX; // Simplified: 30 - 30 cancels out
+                }
+                // Ensure tooltip doesn't go off-screen
+                tooltip.style.left = Math.max(10, left) + "px";
+            }
+
+
+            if (isMobile()) {
+              getPath.addEventListener("click", (ev) => {
+                    let ct = ev.target;
+                    floor_id.forEach((remove_color) => {
+                        const removePath = document.getElementById(`${remove_color}`);
+                        if (removePath) {
+                            removePath.classList.remove("click_color");
+                        }
+                    });
+                    second_floor_data.map((mapContent) => {
+                        if (mapContent.id == ct.parentNode.id || mapContent.id == ct.id) {
+                            plotId.innerHTML = mapContent.unit;
+                            ct.classList.add("click_color");
+                            detail_des.innerHTML = `
+              <p> ${mapContent.size} </p>
+        
+              <p>${mapContent.status}</p>
+            `;
+                     ikr_btnTxt.innerHTML = mapContent.btn_text || "Details";
+
+            ikr_btnTxt.style.display = "block";
+                            // if (mapContent.link =="" || mapContent.btn_text === "") {
+                            if (mapContent.btn_text === "") {
+                                ikr_btnTxt.style.display = "none";
+                            } else {
+                                ikr_btnTxt.style.display = "block";
+                                ikr_btnTxt.href = mapContent.link;
+                                       
+                            }
+
+                            ikr_rv_detail.style.display = "block";
+
+                            const rect = ct.getBoundingClientRect();
+                            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+                            const tooltipWidth = ikr_rv_detail.offsetWidth;
+                            const tooltipHeight = ikr_rv_detail.offsetHeight;
+
+                            const top = rect.bottom + scrollTop + 8;
+                            let left = rect.left + scrollLeft + (rect.width / 2) - (tooltipWidth / 2);
+
+                            const viewportWidth = window.innerWidth;
+                            if (left + tooltipWidth > viewportWidth) {
+                                left = viewportWidth - tooltipWidth - 10;
+                            }
+                            if (left < 0) {
+                                left = 10;
+                            }
+
+                            ikr_rv_detail.style.top = `${top - tooltipHeight - 21}px`;
+                            ikr_rv_detail.style.left = `${left}px`;
+                        }
+                    });
+                });
+
+           
+           
+            } else {
+                // Click Event: open the tooltip on the bottom-center of the plot
+                getPath.addEventListener("click", (ev) => {
+                    let ct = ev.target;
+                    floor_id.forEach((remove_color) => {
+                        const removePath = document.getElementById(`${remove_color}`);
+                        if (removePath) {
+                            removePath.classList.remove("click_color");
+                        }
+                    });
+                    second_floor_data.map((mapContent) => {
+                        if (mapContent.id == ct.parentNode.id || mapContent.id == ct.id) {
+                            plotId.innerHTML = mapContent.unit;
+                            ct.classList.add("click_color");
+                            detail_des.innerHTML = `
+              <p> ${mapContent.size} </p>
+        
+              <p>${mapContent.status}</p>
+            `;
+                     ikr_btnTxt.innerHTML = mapContent.btn_text || "Details";
+
+            ikr_btnTxt.style.display = "block";
+                            // if (mapContent.link =="" || mapContent.btn_text === "") {
+                            if (mapContent.btn_text === "") {
+                                ikr_btnTxt.style.display = "none";
+                            } else {
+                                ikr_btnTxt.style.display = "block";
+                                ikr_btnTxt.href = mapContent.link;
+                                       
+                            }
+
+                            ikr_rv_detail.style.display = "block";
+
+                            const rect = ct.getBoundingClientRect();
+                            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+                            const tooltipWidth = ikr_rv_detail.offsetWidth;
+                            const tooltipHeight = ikr_rv_detail.offsetHeight;
+
+                            const top = rect.bottom + scrollTop + 8;
+                            let left = rect.left + scrollLeft + (rect.width / 2) - (tooltipWidth / 2);
+
+                            const viewportWidth = window.innerWidth;
+                            if (left + tooltipWidth > viewportWidth) {
+                                left = viewportWidth - tooltipWidth - 10;
+                            }
+                            if (left < 0) {
+                                left = 10;
+                            }
+
+                            ikr_rv_detail.style.top = `${top - tooltipHeight - 21}px`;
+                            ikr_rv_detail.style.left = `${left}px`;
+                        }
+                    });
+                });
+
+                // Mousemove Event for Hover Effect
+                getPath.addEventListener("mousemove", (ev) => {
+                    let currentTarget = ev.target;
+                    currentTarget.style.cursor = "pointer";
+
+
+                    second_floor_data.forEach((mapContent, index) => {
+                        if (mapContent.id === currentTarget.parentNode.id || mapContent.id === currentTarget.id) {
+                            // console.log(mapContent.id);
+                            showfloorData(ev, mapContent, index);
+                        }
+                    });
+                });
+
+                // Mouseout Event
+                getPath.addEventListener("mouseout", (ev) => {
+                    ev.target.classList.remove("hoverColor");
+                    ev.target.style.opacity = '0';
+                    reserve_status.style.display = "none";
+                    floor_datail_popup.style.display = "none";
+                    lease_popup.style.display = "none";
+
+                    ev.target.classList.remove("available_units", "leased_units", "under_contract", "management_use", "bookable_spaces");
+
+                });
+            }
+        });
+
+        // Add mouseleave event to SVG to ensure tooltips are hidden
+        ikr_svg.addEventListener('mouseleave', () => {
+            reserve_status.style.display = "none";
+            floor_datail_popup.style.display = "none";
+            lease_popup.style.display = "none";
+            floor_id.forEach((id) => {
+                const path = document.getElementById(id);
+                if (path) {
+                    path.classList.remove("hoverColor");
+                    path.style.opacity = '0';
+                }
+            });
+        });
+
+        // Hide ikr_rv_detail when clicking outside SVG plots or mismatched plots
+        window.addEventListener('click', (ev) => {
+            const clickedId = ev.target.id || ev.target.parentNode.id;
+            let isInsideTooltip = false;
+
+            let target = ev.target;
+            while (target) {
+                if (target === ikr_rv_detail) {
+                    isInsideTooltip = true;
+                    break;
+                }
+                target = target.parentNode;
+            }
+
+            if (!isInsideTooltip && !floor_id.includes(clickedId)) {
+                ikr_rv_detail.style.display = 'none';
+            }
+        });
+
+        window.addEventListener("load", (ev) => { });
+
+        function isMobile() {
+            const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+            return regex.test(navigator.userAgent);
+        }
+        </script>
+</body>
+
+</html>

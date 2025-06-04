@@ -11,7 +11,7 @@
 <body>
     <div class="container">
 
-        <div class="ikr_rv_detail" id="ikr_rv_detail">
+        <div class="ikr_rv_detail detail_after" id="ikr_rv_detail">
             <div style="position: relative">
                 <div id="detail_img" class="ikr_detail_img">
                     <img src="" alt="" id="map_img" />
@@ -27,25 +27,48 @@
             </div>
         </div>
         <div class="ikr_map_tooltip" id="ikr_map_tooltip"></div>
-        <?xml version="1.0" encoding="UTF-8"?>
-        <svg id="ikr_svg" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1536">
+        <svg id="ikr_svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 1059.4 1589.11">
             <defs>
                 <style>
+                    .cls-1,
+                    .cls-2 {
+                    
+                        opacity: 0.01;
+                    }
+
                     .cls-1 {
-                        fill: red;
-                        opacity: 0;
-                        stroke: #000;
-                        stroke-miterlimit: 10;
+                       
+                        stroke-linejoin: round;
+                    }
+
+                    .hoverColor {
+                        fill: #F4B400 !important;
+                        opacity: 0.5 !important;
                     }
                 </style>
             </defs>
-            <image width="1024" height="1536" xlink:href="./9451FC40-0FFE-4194-AD0F-5C174503FCD6.png" />
-            <polygon id="floor1" class="cls-1"
-                points="201.6 1049.92 197.88 1273.6 232.8 1277.92 240.72 1270 593.88 1351 896.4 1162.24 898.08 1010.08 591.36 1084.96 201.6 1049.92" />
+            <g id="Layer_1" data-name="Layer 1">
+                <image width="1024" height="1536" transform="scale(1.03)" xlink:href="./svg/Solareign_East.png" />
+            </g>
+            <g id="floor">
+                <polygon id="ground_floor" class="cls-1"
+                    points="928.51 1039.32 928.68 1177.02 613.44 1382.81 249.66 1313.53 238.04 1318.12 206.3 1310.98 208.24 1077.23 613.71 1110.93 928.51 1039.32" />
+                <polygon id="second_floor" class="cls-1"
+                    points="928.13 880.1 928.51 1039.32 613.71 1110.93 208.24 1077.23 208.17 868.7 610.81 854.98 928.13 880.1" />
+                <polygon id="rooft_terrace" class="cls-2"
+                    points="927.53 583.57 612.08 344.68 219.66 447.18 219.66 387.74 231.15 385.19 230.13 280 209.7 267.74 210.21 255.23 606.47 108.42 825.53 336.93 825.74 333.32 840.47 327.23 928.17 422.21 927.53 583.57" />
+                <polygon id="third_floor" class="cls-1"
+                    points="927.88 730.08 928.13 880.1 610.81 854.98 208.17 868.7 209.19 662.1 611.06 610.38 927.88 730.08" />
+                <polygon id="fourth_floor" class="cls-1"
+                    points="927.53 583.57 927.88 730.08 611.06 610.38 209.19 662.1 209.19 449.91 219.66 447.18 612.08 344.68 927.53 583.57" />
+            </g>
         </svg>
+
     </div>
 
+    <!-- import the data from the data js -->
+    <script src="./data.js"></script>
 
     <script>
 
@@ -71,21 +94,13 @@
         console.log(getAllChildNodeIds(ikr_svg));
 
         const floor_id = [
-            "floor1"
-        ]
-
-        const floorData = [
-            {
-                id: "floor1",
-                name: "Ground Floor",
-                description: "Reception, Parking, and Lounge Area",
-                rooms: 10,
-                amenities: ["Lobby", "Restrooms", "Security Desk"],
-                link: './floor_plan1.html',
-            }, 
-          
-           
+            "ground_floor",
+            "second_floor",
+            "rooft_terrace",
+            "third_floor",
+            "fourth_floor"
         ];
+
 
 
 
@@ -106,14 +121,14 @@
 
             // add click event
             // Common function to display lot details
-            function showfloorData(ev, mapContent, index) {
+            function showsolareign_est_building(ev, mapContent, index) {
 
 
                 // change the fill color of the path on mouse move 
 
                 const ct = ev.target;
 
-                ct.style.opacity = '0.5';
+                // ct.style.opacity = '0.5';
                 //   if (index < 9) {
                 //     plotId.innerHTML = ` Lot 0${index + 1}`;
                 //   } else {
@@ -126,22 +141,21 @@
                 detail_des.innerHTML = `
     <ul>
       <li>  <strong> </strong>  ${mapContent.description} </li>
-      <li>  <strong> Rooms</strong>  ${mapContent.rooms} </li>
-      <li>    ${mapContent.amenities}</li>
+ 
     </ul>
   `;
 
                 let screenWidth = window.innerWidth;
                 if (screenWidth < 350 && ev.offsetX < 150) {
-                    ikr_rv_detail.style.left = ev.offsetX + ikr_rv_detail.offsetWidth / 6 + "px";
+                    ikr_rv_detail.style.left = ev.offsetX + ikr_rv_detail.offsetWidth / 6  -30+ "px";
                 } else if (screenWidth < 350 && ev.offsetX < 200) {
-                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth -30 + "px";
                 } else if (screenWidth < 500 && ev.offsetX > 120) {
-                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth -30 + "px";
                 } else if (screenWidth > 500) {
-                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth + "px";
+                    ikr_rv_detail.style.left = ev.offsetX - ikr_rv_detail.offsetWidth  -30+ "px";
                 } else {
-                    ikr_rv_detail.style.left = ev.offsetX + "px";
+                    ikr_rv_detail.style.left = ev.offsetX -30 + "px";
                 }
 
                 ikr_btnTxt.style.display = mapContent.site_link ? "block" : "none";
@@ -153,9 +167,9 @@
             // Click Event
             getPath.addEventListener("click", (ev) => {
                 let ct = ev.target;
-                floorData.forEach((mapContent, index) => {
+                solareign_est_building.forEach((mapContent, index) => {
                     if (mapContent.id === ct.parentNode.id || mapContent.id === ct.id) {
-                        showfloorData(ev, mapContent, index);
+                        showsolareign_est_building(ev, mapContent, index);
                         // the link open a new tab
 
                         window.open(mapContent.link, '_blank');
@@ -174,22 +188,22 @@
 
 
                 currentTarget.style.cursor = "pointer";
-                currentTarget.classList.add("hovColor");
+                currentTarget.classList.add("hoverColor");
 
-                floorData.forEach((mapContent, index) => {
+                solareign_est_building.forEach((mapContent, index) => {
                     if (mapContent.id === currentTarget.parentNode.id || mapContent.id === currentTarget.id) {
 
                         console.log(mapContent.id)
 
                         // Show lot details on hover as well
-                        showfloorData(ev, mapContent, index);
+                        showsolareign_est_building(ev, mapContent, index);
                     }
                 });
             });
 
             // Mouseout Event
             getPath.addEventListener("mouseout", (ev) => {
-                ev.target.classList.remove("hovColor");
+                ev.target.classList.remove("hoverColor");
 
                 ev.target.style.opacity = '0';
                 ikr_rv_detail.style.display = "none"; // Hide details on mouse out

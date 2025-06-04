@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1024 1024">
+    <defs>
+        <style>.cls-1{fill:#ff0d0d;stroke:#ff0d0d;stroke-miterlimit:10;opacity:0.01;}</style>
+    </defs>
+    <g id="Layer_1" data-name="Layer 1">
+        <image width="1024" height="1024" xlink:href="./Solareign_East_GroundFloor-01.png"/>
+    </g>
+    <g id="solareign_st_ground_floor">
+        <polygon id="organic_market" class="cls-1" points="553.28 616.09 554.04 505.53 660.77 506.55 657.19 277.28 553.28 275.23 553.28 207.83 401.87 207.83 408 64.85 112.34 64.85 48.68 781.28 412.94 781.28 419.75 617.19 553.28 616.09"/>
+        <polygon id="entry" class="cls-1" points="103.66 814.47 117.96 882.38 360.51 882.38 354.72 814.47 103.66 814.47"/>
+        <polygon id="market_entry" class="cls-1" points="427.4 882.38 550.47 882.38 554.55 628.6 429.45 628.6 424.34 794.04 427.4 882.38"/>
+        <polygon id="r1_entry" class="cls-1" points="584.18 814.8 651.91 814.8 647.49 885.96 582.64 884.6 584.18 814.8"/>
+        <polygon id="r1" class="cls-1" points="560.68 781.28 667.91 781.28 663.15 513.36 562.04 513.36 560.68 781.28"/>
+        <path id="salon_entry" class="cls-1" d="M704.34,814.8H811.91L802.72,879H697.87ZM860.6,879h99.74L974,814.8l-100.09,1.54Z"/>
+        <polygon class="cls-1" points="672 563.23 842.04 563.23 854.3 781.28 677.11 781.28 672 563.23"/>
+        <polygon id="entry-2" data-name="entry" class="cls-1" points="862.64 782.98 999.15 781.28 981.45 563.23 852.09 563.23 862.64 782.98"/>
+        <polygon id="salon_2" class="cls-1" points="852.09 554.04 979.91 554.04 960.51 309.45 835.91 309.45 852.09 554.04"/>
+        <polygon id="cell_phone_2" class="cls-1" points="672 554.04 841.53 554.04 827.23 309.45 664.34 309.45 672 554.04"/>
+        <polygon id="salon_1" class="cls-1" points="835.91 302.3 959.49 302.3 940.6 64.85 824.17 64.85 835.91 302.3"/>
+        <polygon id="cell_phone" class="cls-1" points="669.28 302.3 829.28 302.3 815.32 64.85 664.34 64.85 669.28 302.3"/>
+        <polygon id="elevor" class="cls-1" points="565.45 64.85 654.98 64.85 659.06 199.83 565.45 201.53 565.45 64.85"/>
+        <polygon id="r2" class="cls-1" points="417.19 64.85 554.55 64.85 554.55 201.53 412.08 201.53 417.19 64.85"/>
+        <polygon id="r2_entry" class="cls-1" points="459.06 229.79 461.62 309.45 522.38 309.45 522.38 229.79 459.06 229.79"/>
+    </g>
+</svg>
